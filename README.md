@@ -1,4 +1,4 @@
-# Udaan – Official NGO Website
+# Udaan - Official NGO Website
 
 A modern, responsive website developed for **Udaan**, a youth-led nonprofit organization dedicated to creating positive social impact through education, compassion, community service, and volunteer-driven initiatives.
 
