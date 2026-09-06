@@ -63,14 +63,12 @@ udaan-website/
 
 ## 📷 Preview
 
-Example:
 
-```
 ![Home](screenshots/home.png)
 ![About](screenshots/about.png)
 ![Gallery](screenshots/gallery.png)
 ![Contact](screenshots/contact.png)
-```
+
 
 ---
 
