@@ -63,16 +63,13 @@ udaan-website/
 
 ## 📷 Preview
 
-> Add screenshots of the homepage and key sections here.
-
 Example:
 
 ```
-screenshots/
-├── home.png
-├── about.png
-├── gallery.png
-└── contact.png
+![Home](screenshots/home.png)
+![About](screenshots/about.png)
+![Gallery](screenshots/gallery.png)
+![Contact](screenshots/contact.png)
 ```
 
 ---
