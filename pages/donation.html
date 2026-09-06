@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Udaan - United Drive for Aspirations And Nurturing</title>
+   <link rel="stylesheet" href="../css/main.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+   <header>
+      <nav>
+      <div class="logo" id="top">
+         <a href="../index.html">
+            <img src="../assets/logo/logo.png" alt="Udaan - United Drive for Aspirations And Nurturing">
+         </a>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
+         <span></span><span></span><span></span>
+      </button>
+      <ul id="primary-navigation">
+         <li><a href="../index.html#top">Home</a></li>
+         <li><a href="../index.html#about">About Us</a></li>
+         <li><a href="../index.html#our-work">Our Work</a></li>
+         <li><a href="../index.html#gallery">Gallery</a></li>
+         <li><a href="../index.html#contact">Contact Us</a></li>
+      </ul>
+      <a href="#top" class="btn">
+            <span>Donate Now</span>
+
+            <svg
+               class="arrow"
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round">
+
+               <path d="M5 12h14"/>
+               <path d="m13 5 7 7-7 7"/>
+            </svg>
+         </a>
+   </nav>
+   </header>
+   <section class="donation-hero">
+      <img src="../assets/img/donation-hero.png" alt="udaan">
+   </section>
+   
+   <section class="donation">
+      <div class="donation-left">
+         <span class="accent-txt">MAKE A DIFFERENCE</span>
+         <h2>Support Our Mission</h2>
+         <p>Every contribution, big or small, helps us provide education, food, and hope to those who need it most.</p>
+         <div class="upi-box">
+            <span class="upi-label accent-txt" >UPI ID</span>
+
+            <div class="upi-id-container">
+               <span id="upi-id">yourupi@okaxis</span>
+
+               <button class="copy-btn" onclick="copyUPI()" aria-label="Copy UPI ID">
+                     <i class="fa-regular fa-copy"></i>
+               </button>
+            </div>
+            <p class="payment-hint">Tap the copy icon, then complete your donation in any UPI app.</p>
+         </div>
+      </div>
+      <div class="donation-right">
+         <span class="accent-txt">OR SCAN THIS QR CODE DIRECTLY</span>
+         <div class="qr-frame">
+            <img src="../assets/qrcode/upi.png" alt="Udaan-UPI QR Code">
+         </div>
+         <p class="payment-hint">Open your preferred UPI app and scan this code to contribute.</p>
+      </div>
+   </section>
+   <footer>
+      <div class="footer-up">
+         <img src="../assets/logo/logo.png" alt="Udaan Logo">
+         <p>United Drive for Aspirations and Nurturing. <br> Growing hope, together.</p>
+         <ul>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#our-work">Our Work</a></li>
+            <li><a href="../index.html#gallery">Gallery</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+         </ul>
+      </div>
+      <div class="line-horizontal"></div>
+      <div class="footer-down">
+         <span class="copyright">&copy; Udaan. Made with care.</span>
+         <a href="#top" class="back-to-top">
+            <span>Back to top</span>
+
+            <svg
+               class="arrow-up"
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round">
+
+               <path d="M12 19V5"/>
+               <path d="m5 12 7-7 7 7"/>
+
+            </svg>
+         </a>
+      </div>
+   </footer>
+   <script src="../js/script.js"></script>
+</body>
+</html>
