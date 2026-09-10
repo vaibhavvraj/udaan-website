@@ -9,6 +9,7 @@ The website serves as Udaan's digital presence, showcasing its mission, impact, 
 ## 🌟 Features
 
 - Responsive design for desktop, tablet, and mobile devices
+- Accessible navigation and semantic HTML for both Desektop and mobile devices
 - Hero section 
 - About section introducing Udaan's mission
 - Impact statistics section
@@ -17,7 +18,7 @@ The website serves as Udaan's digital presence, showcasing its mission, impact, 
 - Contact & Inquiry form
 - SEO-friendly metadata
 - Optimized images for faster loading
-- Accessible navigation and semantic HTML for both Desektop and mobile devices
+
 
 ---
 
@@ -105,7 +106,7 @@ This project was created to provide Udaan with a digital platform that:
 
 **Vaibhav**
 
-Designed and developed as part of my web development learning journey while contributing to a meaningful social initiative.
+Designed and developed as part of my web development learning journey while contributing to a meaningful social cause.
 
 GitHub: https://github.com/vaibhavvraj
 
