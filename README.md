@@ -1,6 +1,6 @@
 # Udaan - Official NGO Website
 
-A modern, responsive website developed for **Udaan**, a youth-led nonprofit organization dedicated to creating positive social impact through education, compassion, community service, and volunteer-driven initiatives.
+A website developed for **Udaan**, a youth-led nonprofit organization dedicated to creating positive social impact through education, compassion, community service, and volunteer-driven initiatives.
 
 The website serves as Udaan's digital presence, showcasing its mission, impact, events, gallery, and ways for individuals to get involved.
 
@@ -9,16 +9,15 @@ The website serves as Udaan's digital presence, showcasing its mission, impact, 
 ## 🌟 Features
 
 - Responsive design for desktop, tablet, and mobile devices
-- Modern and clean user interface
-- Hero section with impactful messaging
+- Hero section 
 - About section introducing Udaan's mission
 - Impact statistics section
 - Community initiatives showcase
 - Infinite scrolling gallery
-- Contact & volunteer form
+- Contact & Inquiry form
 - SEO-friendly metadata
 - Optimized images for faster loading
-- Accessible navigation and semantic HTML
+- Accessible navigation and semantic HTML for both Desektop and mobile devices
 
 ---
 
@@ -83,19 +82,19 @@ https://udaan-website-9jr.pages.dev/
 
 ## 💡 Purpose
 
-This project was created to provide Udaan with a modern digital platform that:
+This project was created to provide Udaan with a digital platform that:
 
 - Introduces visitors to the organization's mission
 - Highlights community initiatives and impact
 - Encourages volunteering and participation
-- Makes information easily accessible across all devices
+- Makes a donation seamless and easy
 
 ---
 
 ## 📈 Future Improvements
 
 - Multi-language support
-- Event management portal
+- Better payment integration
 - Blog and news section
 - Backend-powered contact form with email notifications
 - Website analytics and performance monitoring
