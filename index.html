@@ -32,12 +32,24 @@
    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+   <!-- Loading Screen -->
+   <div id="preloader" aria-hidden="true">
+      <div class="preloader-inner">
+         <img src="assets/logo/logo.webp" alt="Udaan Logo" class="preloader-logo" width="170" height="85">
+         <div class="preloader-progress" role="progressbar" aria-label="Loading Udaan">
+            <div class="preloader-progress-bar"></div>
+         </div>
+      </div>
+   </div>
+   <noscript>
+      <style>#preloader { display: none !important; }</style>
+   </noscript>
    <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress-bar"></span></div>
    <header>
       <nav>
       <div class="logo" id="top">
          <a href="index.html">
-            <img src="assets/logo/logo.png" alt="Udaan - United Drive for Aspirations And Nurturing">
+            <img src="assets/logo/logo.webp" alt="Udaan - United Drive for Aspirations And Nurturing">
          </a>
       </div>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
@@ -72,7 +84,7 @@
    
    <section class="hero">
 
-      <img src="assets/img/hero.avif" class="hero-image" alt="Udaan-Background">
+      <img src="assets/img/hero.webp" class="hero-image" alt="Udaan-Background" fetchpriority="high" decoding="async">
    
       <div class="hero-content">
          <span class="accent-txt">United Drive for Aspiprations & Nurturing</span>
@@ -103,7 +115,7 @@
       </div>
    </section>
    <Section class="about" id="about">
-      <img src="assets/img/about.jpg" alt="">
+      <img src="assets/img/about.webp" alt="About Udaan" loading="lazy" decoding="async">
       <div class="abt-content">
          <span class="accent-txt">
             WHO WE ARE
@@ -148,17 +160,17 @@
       </div>
       <div class="our-work-cards">
          <div class="cards">
-            <img src="assets/icons/sparkle.png" alt="icon">
+            <img src="assets/icons/sparkle.png" alt="icon" loading="lazy" decoding="async">
             <h3>Learning & education</h3>
             <p>Learning materials, mentorship, and joyful educational experiences that help children keep growing.</p>
          </div>
          <div class="cards">
-            <img src="assets/icons/heart.png" alt="icon">
+            <img src="assets/icons/heart.png" alt="icon" loading="lazy" decoding="async">
             <h3>Care & essentials</h3>
             <p>Food distribution and donation drives that bring practical relief to families in our community.</p>
          </div>
          <div class="cards">
-            <img src="assets/icons/bolt.png" alt="icon">
+            <img src="assets/icons/bolt.png" alt="icon" loading="lazy" decoding="async">
             <h3>Community action</h3>
             <p>Local projects that bring people together, encourage kindness, and leave neighbourhoods stronger.</p>
          </div>
@@ -173,18 +185,18 @@
       <div class="carousel">
          <div class="carousel-track">
 
-            <div class="carousel-img"><img src="assets/gallery/1.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/2.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/3.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/4.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/5.jpg" alt=""></div>
+            <div class="carousel-img"><img src="assets/gallery/1.webp" alt="Gallery image 1" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/2.webp" alt="Gallery image 2" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/3.webp" alt="Gallery image 3" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/4.webp" alt="Gallery image 4" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/5.webp" alt="Gallery image 5" loading="lazy" decoding="async"></div>
 
             <!-- Duplicate -->
-            <div class="carousel-img"><img src="assets/gallery/1.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/2.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/3.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/4.jpg" alt=""></div>
-            <div class="carousel-img"><img src="assets/gallery/5.jpg" alt=""></div>
+            <div class="carousel-img"><img src="assets/gallery/1.webp" alt="Gallery image 1" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/2.webp" alt="Gallery image 2" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/3.webp" alt="Gallery image 3" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/4.webp" alt="Gallery image 4" loading="lazy" decoding="async"></div>
+            <div class="carousel-img"><img src="assets/gallery/5.webp" alt="Gallery image 5" loading="lazy" decoding="async"></div>
 
          </div>
       </div>
@@ -306,7 +318,7 @@
    </section>
    <footer>
       <div class="footer-up">
-         <img src="assets/logo/logo.png" alt="Udaan Logo">
+         <img src="assets/logo/logo.webp" alt="Udaan Logo" loading="lazy" decoding="async">
          <p>United Drive for Aspirations and Nurturing. <br> Growing hope, together.</p>
          <ul>
             <li><a href="#about">About</a></li>

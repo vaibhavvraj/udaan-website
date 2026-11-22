@@ -53,3 +53,39 @@ if (scrollProgressBar) {
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     window.addEventListener("resize", updateScrollProgress);
 }
+
+// Page Preloader dismissal
+(function () {
+    const preloader = document.getElementById("preloader");
+    if (!preloader) return;
+
+    let isDismissed = false;
+    const hidePreloader = () => {
+        if (isDismissed) return;
+        isDismissed = true;
+        preloader.classList.add("preloader-hidden");
+        window.setTimeout(() => {
+            if (preloader.parentNode) {
+                preloader.style.display = "none";
+            }
+        }, 450);
+    };
+
+    const minDisplayMs = 250;
+    const startTime = Date.now();
+
+    const onReady = () => {
+        const elapsed = Date.now() - startTime;
+        const delay = Math.max(0, minDisplayMs - elapsed);
+        window.setTimeout(hidePreloader, delay);
+    };
+
+    if (document.readyState === "complete") {
+        onReady();
+    } else {
+        window.addEventListener("load", onReady);
+    }
+
+    // Safety timeout: dismiss after 2s max to prevent blocking
+    window.setTimeout(hidePreloader, 2000);
+})();
