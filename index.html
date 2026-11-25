@@ -258,7 +258,7 @@
             </svg>
          </a>
       </div>
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
          <input type="hidden" name="access_key" value="5a72891d-c85a-4fe2-9e20-1297d6a73a6e">
 
         <div class="form-group">
@@ -303,8 +303,8 @@
                 ></textarea>
         </div>
 
-        <button type="submit" class="btn">
-            <span>Send message</span>
+        <button type="submit" id="contact-submit-btn" class="btn">
+            <span id="contact-btn-label">Send message</span>
 
             <svg
                 class="arrow"
@@ -323,6 +323,8 @@
 
             </svg>
         </button>
+
+        <p id="contact-status" class="form-status" role="status" aria-live="polite" hidden></p>
 
       </form>
    </section>

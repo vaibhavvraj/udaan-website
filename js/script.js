@@ -400,3 +400,107 @@ if (scrollProgressBar) {
     hideGeneratedQR();
     syncDynamicUI();
 })();
+
+// Home Page Enquiries / Contact Form (No Redirect + Custom Web3Forms Metadata)
+(function () {
+    const contactForm = document.getElementById("contact-form");
+    if (!contactForm) return;
+
+    const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+    const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const helpSelect = document.getElementById("help");
+    const messageInput = document.getElementById("message");
+    const submitBtn = document.getElementById("contact-submit-btn");
+    const btnLabel = document.getElementById("contact-btn-label");
+    const statusEl = document.getElementById("contact-status");
+
+    const setStatus = (message, isError = false) => {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        statusEl.classList.toggle("is-error", isError);
+        statusEl.hidden = false;
+    };
+
+    const clearInvalid = () => {
+        [nameInput, emailInput, messageInput].forEach((el) => {
+            if (el) el.classList.remove("is-invalid");
+        });
+    };
+
+    [nameInput, emailInput, messageInput].forEach((el) => {
+        if (!el) return;
+        el.addEventListener("input", () => {
+            el.classList.remove("is-invalid");
+        });
+    });
+
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        clearInvalid();
+
+        const name = (nameInput ? nameInput.value : "").trim();
+        const email = (emailInput ? emailInput.value : "").trim();
+        const message = (messageInput ? messageInput.value : "").trim();
+        const selectedOption = helpSelect && helpSelect.options[helpSelect.selectedIndex];
+        const helpLabel = selectedOption ? selectedOption.textContent.trim() : "General Enquiry";
+
+        if (!name) {
+            if (nameInput) {
+                nameInput.classList.add("is-invalid");
+                nameInput.focus();
+            }
+            setStatus("Please enter your name before sending.", true);
+            return;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            if (emailInput) {
+                emailInput.classList.add("is-invalid");
+                emailInput.focus();
+            }
+            setStatus("Please enter a valid email address.", true);
+            return;
+        }
+
+        const accessKey = accessKeyInput ? accessKeyInput.value.trim() : "";
+        const payload = {
+            access_key: accessKey,
+            from_name: "Udaan Website Enquiries",
+            subject: `New Enquiry (${helpLabel}) from ${name}`,
+            name,
+            email,
+            help_topic: helpLabel,
+            message: message || "(No message provided)",
+        };
+
+        if (submitBtn) submitBtn.disabled = true;
+        if (btnLabel) btnLabel.textContent = "Sending...";
+        setStatus("Sending your enquiry…");
+
+        try {
+            const res = await fetch(WEB3FORMS_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || data.success === false) {
+                throw new Error("Submission failed");
+            }
+            contactForm.reset();
+            setStatus("Thank you! Your enquiry has been sent. Our team will get back to you soon.");
+        } catch (_err) {
+            setStatus(
+                "Could not send right now. Please try again or email team.udaan.fly@gmail.com.",
+                true
+            );
+        } finally {
+            if (submitBtn) submitBtn.disabled = false;
+            if (btnLabel) btnLabel.textContent = "Send message";
+        }
+    });
+})();

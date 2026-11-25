@@ -1028,7 +1028,9 @@ footer ul a:hover {
     padding: .85rem 1.05rem;
 }
 
-.donation-form .form-group input.is-invalid {
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid {
     border-color: #dc2626;
     box-shadow: 0 0 0 3px rgba(220, 38, 38, .12);
 }
@@ -1101,6 +1103,7 @@ footer ul a:hover {
     color: var(--primary-bg);
 }
 
+.form-status,
 .donation-status {
     margin: 0;
     padding: .8rem 1rem;
@@ -1112,6 +1115,7 @@ footer ul a:hover {
     color: var(--primary-text);
 }
 
+.form-status.is-error,
 .donation-status.is-error {
     background: #fef2f2;
     border-color: #fecaca;
