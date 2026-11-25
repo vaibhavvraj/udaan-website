@@ -234,6 +234,7 @@ ul li {
 
 .gallery {
     padding: 6rem 10rem;
+    overflow-x: clip;
 }
 .gallery p {
     font-size: 1rem;
@@ -250,7 +251,6 @@ ul li {
 }
 .carousel{
     margin-top:4rem;
-    overflow-x: clip;
     position:relative;
 }
 .carousel-track{
@@ -647,12 +647,15 @@ footer ul a:hover {
 }
 
 .donation-hero {
-    padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 10vw, 13rem) 0;
+    width: min(calc(100% - 2.5rem), 72rem);
+    margin-inline: auto;
+    padding: clamp(1.25rem, 3vw, 2rem) 0 0;
 }
 
 .donation-hero img {
-    aspect-ratio: 3 / 1;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .donation {
@@ -944,8 +947,7 @@ footer ul a:hover {
     }
 
     .donation-hero img {
-        aspect-ratio: 16 / 9;
-        border-radius: 16px;
+        border-radius: 12px;
     }
 
     .upi-id-container {
