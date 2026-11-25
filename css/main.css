@@ -250,7 +250,7 @@ ul li {
 }
 .carousel{
     margin-top:4rem;
-   
+    overflow-x: clip;
     position:relative;
 }
 .carousel-track{
@@ -828,6 +828,7 @@ footer ul a:hover {
     .stats {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        align-items: start;
         gap: 1.75rem;
     }
 
@@ -925,7 +926,7 @@ footer ul a:hover {
     }
 
     .stats {
-        margin-top: 3.5rem;
+        margin-top: 0;
         padding-top: 2.25rem;
         padding-bottom: 2.25rem;
     }
@@ -1013,7 +1014,9 @@ footer ul a:hover {
 .copy-btn {
     display: inline-flex;
     align-items: center;
-    min-height: 2.25rem;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
 }
 
 .payment-hint {
@@ -1055,9 +1058,15 @@ footer ul a:hover {
 }
 
 @media (max-width: 768px) {
+    .donation-hero {
+        width: min(calc(100% - 2.5rem), 40rem);
+        margin-inline: auto;
+        padding: 1.5rem 0 0;
+    }
+
     .donation {
         width: min(calc(100% - 2.5rem), 40rem);
-        margin-top: 2.5rem;
+        margin-top: 2rem;
         padding: clamp(2rem, 7vw, 3rem) clamp(1.25rem, 6vw, 2.5rem);
         gap: 3rem;
         border-radius: 20px;
@@ -1071,8 +1080,14 @@ footer ul a:hover {
 }
 
 @media (max-width: 520px) {
+    .donation-hero {
+        width: calc(100% - 2rem);
+        padding-top: 1.25rem;
+    }
+
     .donation {
         width: calc(100% - 2rem);
+        margin-top: 1.5rem;
         margin-bottom: 3rem;
     }
 
@@ -1167,7 +1182,7 @@ footer ul a:hover {
 
 @media (max-width: 768px) {
     .about {
-        margin-top: 4rem;
+        margin-top: 0;
         gap: 2.5rem;
     }
 
@@ -1180,7 +1195,7 @@ footer ul a:hover {
     }
 
     .stats {
-        margin-top: 4rem;
+        margin-top: 0;
         padding-top: 2.75rem;
         padding-bottom: 2.75rem;
     }
@@ -1212,12 +1227,12 @@ footer ul a:hover {
     }
 
     .about {
-        margin-top: 3.5rem;
+        margin-top: 0;
         gap: 2rem;
     }
 
     .stats {
-        margin-top: 3.5rem;
+        margin-top: 0;
         padding-top: 2.25rem;
         padding-bottom: 2.25rem;
     }
@@ -1233,6 +1248,10 @@ footer ul a:hover {
     .join-movement {
         padding-top: 2.75rem;
         padding-bottom: 2.75rem;
+    }
+
+    footer img {
+        width: 6.5rem;
     }
 }
 
@@ -1250,13 +1269,14 @@ footer ul a:hover {
     }
 
     .nav-toggle {
-        width: 2.25rem;
-        height: 2.25rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     nav > .btn {
-        padding: .65em .7em;
-        font-size: .75rem;
+        padding: .75em .9em;
+        font-size: .8rem;
+        min-height: 2.5rem;
     }
 
     .hero {
@@ -1310,7 +1330,7 @@ footer ul a:hover {
     }
 
     .about {
-        margin-top: 3rem;
+        margin-top: 0;
         gap: 1.75rem;
     }
 
@@ -1322,7 +1342,8 @@ footer ul a:hover {
     .our-work-content-left h2,
     .gallery-content h2,
     .join-movement h2,
-    .work-together-content h2 {
+    .work-together-content h2,
+    .donation h2 {
         font-size: 2.1rem;
         line-height: 1.15;
         letter-spacing: 1px;
@@ -1337,7 +1358,7 @@ footer ul a:hover {
     }
 
     .stats {
-        margin-top: 3rem;
+        margin-top: 0;
         gap: 1.25rem;
         padding: 2rem 1rem;
     }
