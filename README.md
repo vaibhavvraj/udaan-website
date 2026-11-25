@@ -52,9 +52,7 @@ udaan-website/
 ├── js/
 │   └── script.js
 │
-├── pages/
-│   └── donation.html
-|
+├── donation.html
 ├── index.html
 └── README.md
 ```
