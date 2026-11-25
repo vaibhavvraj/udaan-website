@@ -78,30 +78,124 @@
       <img src="../assets/img/donation-hero.webp" alt="udaan" loading="lazy" decoding="async">
    </section>
    
-   <section class="donation">
+   <section class="donation" id="donate-card">
       <div class="donation-left">
          <span class="accent-txt">MAKE A DIFFERENCE</span>
          <h2>Support Our Mission</h2>
          <p>Every contribution, big or small, helps us provide education, food, and hope to those who need it most.</p>
-         <div class="upi-box">
-            <span class="upi-label accent-txt" >UPI ID</span>
 
-            <div class="upi-id-container">
+         <form id="donation-form" class="donation-form" novalidate>
+            <!-- Separate Web3Forms Access Key for Donations -->
+            <input type="hidden" name="access_key" id="donation-access-key" value="a4c79317-95bb-491b-812c-377cb8e4ef38">
+
+            <div class="form-group">
+               <label for="donor-name">Full Name <span class="required-mark" aria-hidden="true">*</span></label>
+               <input
+                  type="text"
+                  id="donor-name"
+                  name="name"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  required>
+            </div>
+
+            <div class="donation-row">
+               <div class="form-group">
+                  <label for="donor-email">Email <span class="optional-label">(Optional)</span></label>
+                  <input
+                     type="email"
+                     id="donor-email"
+                     name="email"
+                     placeholder="you@mail.com"
+                     autocomplete="email">
+               </div>
+
+               <div class="form-group">
+                  <label for="donor-phone">Phone Number <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input
+                     type="tel"
+                     id="donor-phone"
+                     name="phone"
+                     placeholder="Mobile number"
+                     autocomplete="tel"
+                     inputmode="tel"
+                     required>
+               </div>
+            </div>
+
+            <div class="form-group">
+               <label for="donor-amount">Donation Amount (₹) <span class="required-mark" aria-hidden="true">*</span></label>
+               <div class="amount-presets" role="group" aria-label="Choose a preset donation amount">
+                  <button type="button" class="amount-chip" data-amount="100">₹100</button>
+                  <button type="button" class="amount-chip" data-amount="250">₹250</button>
+                  <button type="button" class="amount-chip is-active" data-amount="500">₹500</button>
+                  <button type="button" class="amount-chip" data-amount="1000">₹1,000</button>
+                  <button type="button" class="amount-chip" data-amount="2500">₹2,500</button>
+               </div>
+
+               <div class="amount-input-wrap">
+                  <span class="currency-prefix" aria-hidden="true">₹</span>
+                  <input
+                     type="number"
+                     id="donor-amount"
+                     name="amount"
+                     min="1"
+                     step="1"
+                     value="500"
+                     placeholder="Enter custom amount"
+                     inputmode="numeric"
+                     required>
+               </div>
+            </div>
+
+            <button type="submit" id="pay-now-btn" class="btn donation-pay-btn">
+               <span id="pay-btn-label">Pay ₹500 via UPI App</span>
+               <svg
+                  class="arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m13 5 7 7-7 7"/>
+               </svg>
+            </button>
+
+            <p id="donation-status" class="donation-status" role="status" aria-live="polite" hidden></p>
+         </form>
+      </div>
+
+      <div class="donation-right">
+         <div class="qr-placeholder" id="qr-placeholder">
+            <div class="qr-placeholder-icon" aria-hidden="true">
+               <i class="fa-solid fa-qrcode"></i>
+            </div>
+            <span class="accent-txt">DYNAMIC PAYMENT QR</span>
+            <h3>Ready to Generate QR</h3>
+            <p class="payment-hint">Enter your details and amount on the left, then click <strong>Generate Payment QR</strong> to scan and pay from your phone.</p>
+         </div>
+
+         <div class="qr-panel" id="dynamic-qr-panel" hidden>
+            <span class="accent-txt">SCAN WITH ANY UPI APP</span>
+            <div class="qr-amount-badge" id="qr-amount-badge">
+               <span>Paying</span>
+               <strong id="qr-amount-display">₹500</strong>
+               <span>to Udaan</span>
+            </div>
+            <div class="qr-frame" id="dynamic-qr-frame">
+               <img src="../assets/qrcode/upi.png" alt="Udaan-UPI QR Code" id="fallback-qr-img">
+            </div>
+            <div class="upi-id-container upi-id-compact">
                <span id="upi-id">ar4041148-1@oksbi</span>
-
-               <button class="copy-btn" onclick="copyUPI()" aria-label="Copy UPI ID">
-                     <i class="fa-regular fa-copy"></i>
+               <button type="button" class="copy-btn" onclick="copyUPI()" aria-label="Copy UPI ID">
+                  <i class="fa-regular fa-copy"></i>
                </button>
             </div>
-            <p class="payment-hint">Tap the copy icon, then complete your donation in any UPI app.</p>
+            <p class="payment-hint" id="qr-hint">Scan with GPay, PhonePe, Paytm, or any UPI app — your chosen amount auto-fills.</p>
          </div>
-      </div>
-      <div class="donation-right">
-         <span class="accent-txt">OR SCAN THIS QR CODE DIRECTLY</span>
-         <div class="qr-frame">
-            <img src="../assets/qrcode/upi.png" alt="Udaan-UPI QR Code">
-         </div>
-         <p class="payment-hint">Open your preferred UPI app and scan this code to contribute.</p>
       </div>
    </section>
    <footer>
@@ -138,6 +232,7 @@
          </a>
       </div>
    </footer>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
    <script src="../js/script.js"></script>
 </body>
 </html>
