@@ -80,7 +80,7 @@ udaan-website/
 ## Developer
 
 **Vaibhav**  
-Built as a personal web development project to give Udaan a clean online presence—designed and coded hands-on with help from AI agents (**Codex** and **Antigravity**) for optimization, layout fixes, and refinements.
+Built as a personal web development project to give Udaan a clean online presence - designed and coded hands-on with help from AI agents (**Codex** and **Antigravity**) for optimization, layout fixes, and refinements.
 
 - GitHub: [@vaibhavvraj](https://github.com/vaibhavvraj)
 
