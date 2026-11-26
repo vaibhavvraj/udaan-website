@@ -58,7 +58,8 @@ nav ul {
    font-weight: 600;
    font-size: 17px;
 }
-ul li {
+nav ul li,
+footer ul li {
    cursor: pointer;
 }
 .btn {
@@ -964,7 +965,7 @@ footer ul a:hover {
 .donation {
     position: relative;
     width: min(calc(100% - 2.5rem), 72rem);
-    margin: clamp(2.5rem, 5vw, 4rem) auto clamp(4rem, 7vw, 6rem);
+    margin: clamp(2.5rem, 5vw, 4rem) auto clamp(1.5rem, 3vw, 2.25rem);
     padding: clamp(2.25rem, 4.5vw, 3.75rem);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(2.5rem, 6vw, 5.5rem);
@@ -1101,6 +1102,58 @@ footer ul a:hover {
     border-radius: 12px;
     background-color: var(--primary-button);
     color: var(--primary-bg);
+}
+
+.consent-check {
+    display: flex;
+    align-items: flex-start;
+    gap: .65rem;
+    padding: .75rem .9rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--secondary-bg);
+    font-size: .88rem;
+    line-height: 1.45;
+    color: var(--secondary-text);
+    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.consent-check input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: .15rem 0 0;
+    accent-color: var(--primary-button);
+    cursor: pointer;
+}
+
+.consent-text {
+    flex: 1 1 auto;
+}
+
+.consent-text label {
+    cursor: pointer;
+    color: var(--primary-text);
+    font-weight: 500;
+}
+
+.consent-read-link {
+    display: inline-block;
+    margin-left: .25rem;
+    color: var(--primary-button);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.consent-read-link:hover {
+    color: var(--button-hover);
+}
+
+.consent-check.is-invalid {
+    border-color: #dc2626;
+    background: #fef2f2;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, .12);
 }
 
 .form-status,
@@ -1250,6 +1303,94 @@ footer ul a:hover {
     padding: 0;
 }
 
+.donation-notice {
+    width: min(calc(100% - 2.5rem), 72rem);
+    margin: 0 auto clamp(3.5rem, 6vw, 5.5rem);
+    padding: clamp(1.5rem, 3.5vw, 2.25rem) clamp(1.5rem, 4.5vw, 3.75rem);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--secondary-bg);
+    scroll-margin-top: 1.5rem;
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.donation-notice.is-highlighted {
+    border-color: var(--primary-button);
+    box-shadow: 0 0 0 4px rgba(35, 71, 166, .14);
+}
+
+.donation-notice-header {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.15rem;
+}
+
+.notice-icon {
+    flex: 0 0 auto;
+    width: 2.65rem;
+    height: 2.65rem;
+    border-radius: 12px;
+    background: rgba(34, 197, 94, .14);
+    color: var(--success);
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+}
+
+.donation-notice-header .accent-txt {
+    display: block;
+    font-size: .78rem;
+    letter-spacing: .04em;
+}
+
+.donation-notice-header h3 {
+    margin: .15rem 0 0;
+    font-size: 1.15rem;
+    color: var(--primary-text);
+}
+
+.donation-notice-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .85rem 2rem;
+}
+
+.donation-notice-list li {
+    font-size: .88rem;
+    line-height: 1.6;
+    color: var(--secondary-text);
+}
+
+.donation-notice-list li:last-child {
+    grid-column: 1 / -1;
+}
+
+.donation-notice-list strong {
+    color: var(--primary-text);
+}
+
+.donation-notice-list code {
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--primary-text);
+    background: var(--cards);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .08rem .4rem;
+    font-size: .85em;
+}
+
+.donation-notice-list a {
+    color: var(--primary-button);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 @media (min-width: 769px) {
     .donation::after {
         content: "";
@@ -1272,9 +1413,21 @@ footer ul a:hover {
     .donation {
         width: min(calc(100% - 2.5rem), 40rem);
         margin-top: 2rem;
+        margin-bottom: 1.5rem;
         padding: clamp(1.75rem, 6vw, 2.75rem) clamp(1.25rem, 5vw, 2.25rem);
         gap: 2.5rem;
         border-radius: 20px;
+    }
+
+    .donation-notice {
+        width: min(calc(100% - 2.5rem), 40rem);
+        padding: 1.5rem clamp(1.25rem, 5vw, 2.25rem);
+        border-radius: 18px;
+    }
+
+    .donation-notice-list {
+        grid-template-columns: 1fr;
+        gap: .75rem;
     }
 
     .donation-left {
@@ -1310,8 +1463,15 @@ footer ul a:hover {
     .donation {
         width: calc(100% - 2rem);
         margin-top: 1.5rem;
-        margin-bottom: 3rem;
+        margin-bottom: 1.25rem;
         padding: 1.5rem 1.15rem;
+    }
+
+    .donation-notice {
+        width: calc(100% - 2rem);
+        margin-bottom: 3rem;
+        padding: 1.35rem 1.15rem;
+        border-radius: 16px;
     }
 
     .upi-id-container,

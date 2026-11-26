@@ -111,6 +111,10 @@ if (scrollProgressBar) {
     const qrPanel = document.getElementById("dynamic-qr-panel");
     const qrFrame = document.getElementById("dynamic-qr-frame");
     const qrAmountDisplay = document.getElementById("qr-amount-display");
+    const consentInput = document.getElementById("donor-consent");
+    const consentBox = document.getElementById("consent-box");
+    const readNoticeLink = document.getElementById("read-notice-link");
+    const noticeSection = document.getElementById("transparency-notice");
     const statusEl = document.getElementById("donation-status");
 
     const phonePortraitMQ = window.matchMedia("(max-width: 600px)");
@@ -236,6 +240,7 @@ if (scrollProgressBar) {
         [nameInput, emailInput, phoneInput, amountInput].forEach((input) => {
             if (input) input.classList.remove("is-invalid");
         });
+        if (consentBox) consentBox.classList.remove("is-invalid");
     };
 
     const markInvalid = (input, message) => {
@@ -245,6 +250,24 @@ if (scrollProgressBar) {
         }
         setStatus(message, true);
     };
+
+    if (readNoticeLink && noticeSection) {
+        readNoticeLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            noticeSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            noticeSection.classList.add("is-highlighted");
+            window.setTimeout(() => {
+                noticeSection.classList.remove("is-highlighted");
+            }, 1600);
+        });
+    }
+
+    if (consentInput) {
+        consentInput.addEventListener("change", () => {
+            if (consentBox) consentBox.classList.remove("is-invalid");
+            lastSubmittedKey = "";
+        });
+    }
 
     presetChips.forEach((chip) => {
         chip.addEventListener("click", () => {
@@ -317,6 +340,12 @@ if (scrollProgressBar) {
             markInvalid(amountInput, "Please choose or enter a donation amount of at least ₹1.");
             return;
         }
+        if (consentInput && !consentInput.checked) {
+            if (consentBox) consentBox.classList.add("is-invalid");
+            if (consentInput) consentInput.focus();
+            setStatus("Please confirm that you have read the Transparency & Contribution Notice.", true);
+            return;
+        }
 
         const submissionKey = `${name}|${email}|${phoneDigits}|${amount}|${currentRefId}`;
         const upiUrl = buildUpiUrl(amount, name, currentRefId);
@@ -343,6 +372,7 @@ if (scrollProgressBar) {
                 upi_id: UPI_ID,
                 upi_note: `${currentRefId} ${sanitizeNote(name)}`.trim(),
                 payment_mode: isPhone ? "Mobile UPI App" : "Desktop/Tablet QR",
+                notice_acknowledged: "Yes — Donor confirmed reading the Transparency & Contribution Notice",
             };
             if (email) {
                 payload.email = email;

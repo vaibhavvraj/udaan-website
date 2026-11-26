@@ -218,6 +218,15 @@
                </div>
             </div>
 
+            <div class="consent-check" id="consent-box">
+               <input type="checkbox" id="donor-consent" name="notice_acknowledged" required>
+               <span class="consent-text">
+                  <label for="donor-consent">I've read and agree to the Transparency &amp; Contribution Notice</label>
+                  <span class="required-mark" aria-hidden="true">*</span>
+                  <a href="#transparency-notice" id="read-notice-link" class="consent-read-link">Read notice</a>
+               </span>
+            </div>
+
             <button type="submit" id="pay-now-btn" class="btn donation-pay-btn">
                <span id="pay-btn-label">Pay ₹500 via UPI App</span>
                <svg
@@ -262,6 +271,42 @@
          </div>
       </div>
    </section>
+
+   <section class="donation-notice" id="transparency-notice" aria-labelledby="transparency-heading">
+      <div class="donation-notice-header">
+         <span class="notice-icon" aria-hidden="true">
+            <i class="fa-solid fa-shield-halved"></i>
+         </span>
+         <div>
+            <span class="accent-txt">TRANSPARENCY &amp; CONTRIBUTION NOTICE</span>
+            <h3 id="transparency-heading">Important Information Before You Contribute</h3>
+         </div>
+      </div>
+
+      <ul class="donation-notice-list">
+         <li>
+            <strong>Initiative Status:</strong>
+            Udaan is an independent, unregistered youth-led community initiative <em>(not yet registered as a Trust, Society, or Section 8 organization)</em>.
+         </li>
+         <li>
+            <strong>No 80G Tax Exemption:</strong>
+            Contributions are voluntary community support for our drives and are not eligible for Section 80G tax deductions.
+         </li>
+         <li>
+            <strong>Payment Recipient:</strong>
+            UPI payments go to a designated team coordinator's account (<code>ar4041148-1@oksbi</code>) and are used solely for Udaan's educational and relief drives.
+         </li>
+         <li>
+            <strong>Domestic (INR) Only:</strong>
+            We accept INR contributions from Indian bank accounts only (not FCRA-registered for foreign-source donations).
+         </li>
+         <li>
+            <strong>Privacy &amp; Refunds:</strong>
+            Your name, phone number, and email are used only for contribution records and drive updates. Transfers are non-refundable. Questions? Email <a href="mailto:team.udaan.fly@gmail.com">team.udaan.fly@gmail.com</a>.
+         </li>
+      </ul>
+   </section>
+
    <footer>
       <div class="footer-up">
          <img src="assets/logo/logo.webp" alt="Udaan NGO Patna Logo" loading="lazy" decoding="async">
