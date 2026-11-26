@@ -965,7 +965,7 @@ footer ul a:hover {
 .donation {
     position: relative;
     width: min(calc(100% - 2.5rem), 72rem);
-    margin: clamp(2.5rem, 5vw, 4rem) auto clamp(1.5rem, 3vw, 2.25rem);
+    margin: clamp(2.5rem, 5vw, 4rem) auto clamp(2.75rem, 5vw, 4rem);
     padding: clamp(2.25rem, 4.5vw, 3.75rem);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(2.5rem, 6vw, 5.5rem);
@@ -1370,6 +1370,8 @@ footer ul a:hover {
 }
 
 .donation-notice-list strong {
+    display: block;
+    margin-bottom: .15rem;
     color: var(--primary-text);
 }
 
@@ -1377,11 +1379,7 @@ footer ul a:hover {
     font-family: inherit;
     font-weight: 600;
     color: var(--primary-text);
-    background: var(--cards);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: .08rem .4rem;
-    font-size: .85em;
+    font-size: .95em;
 }
 
 .donation-notice-list a {
@@ -1413,7 +1411,7 @@ footer ul a:hover {
     .donation {
         width: min(calc(100% - 2.5rem), 40rem);
         margin-top: 2rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2.5rem;
         padding: clamp(1.75rem, 6vw, 2.75rem) clamp(1.25rem, 5vw, 2.25rem);
         gap: 2.5rem;
         border-radius: 20px;
@@ -1463,15 +1461,50 @@ footer ul a:hover {
     .donation {
         width: calc(100% - 2rem);
         margin-top: 1.5rem;
-        margin-bottom: 1.25rem;
+        margin-bottom: 2rem;
         padding: 1.5rem 1.15rem;
     }
 
     .donation-notice {
         width: calc(100% - 2rem);
         margin-bottom: 3rem;
-        padding: 1.35rem 1.15rem;
+        padding: 1.25rem 1rem;
         border-radius: 16px;
+    }
+
+    .donation-notice-header {
+        align-items: flex-start;
+        gap: .75rem;
+        margin-bottom: 1rem;
+    }
+
+    .notice-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 10px;
+        font-size: .95rem;
+    }
+
+    .donation-notice-header .accent-txt {
+        font-size: .7rem;
+    }
+
+    .donation-notice-header h3 {
+        font-size: 1.02rem;
+        line-height: 1.3;
+    }
+
+    .donation-notice-list {
+        gap: .65rem;
+    }
+
+    .donation-notice-list li {
+        background: var(--cards);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: .8rem .9rem;
+        font-size: .85rem;
+        line-height: 1.55;
     }
 
     .upi-id-container,
