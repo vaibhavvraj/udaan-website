@@ -1,112 +1,91 @@
 # Udaan — Official NGO Website
 
-**Udaan** (*United Drive for Aspirations and Nurturing*) is a youth-led nonprofit organization committed to empowering underprivileged children and communities through education, food distribution drives, donation campaigns, and grassroots social initiatives.
+Website for **Udaan** (*United Drive for Aspirations and Nurturing*), a youth-led nonprofit organization working to support underprivileged children and families through education, food drives, and community initiatives.
 
-🌐 **Live Website:** [https://teamudaan.org](https://teamudaan.org/)
-
----
-
-## ✨ Key Features
-
-- **Fast, Lightweight Performance**
-  - WebP/AVIF optimized photography and icons with native lazy-loading below the fold.
-  - Brand-matched page preloader for smooth initial presentation.
-- **Responsive Across All Devices**
-  - Tailored layouts for desktops, tablets, and compact phones (down to `320px` width) with mobile drawer navigation and scroll progress indicator.
-- **Smart Device-Aware UPI Donation Flow (`donation.html`)**
-  - Collects donor name, phone number, optional email, and preset or custom donation amounts (`₹100`, `₹250`, `₹500`, `₹1,000`, `₹2,500`, or custom).
-  - **Mobile Phones:** Launches the installed UPI app directly (`upi://pay`) with the chosen amount and reference note pre-filled.
-  - **Desktops & Tablets:** Generates a live, dynamic SVG UPI QR code on submission for quick scanning from any phone.
-  - **Dedicated NGO Email Alerts:** Sends donation records to a separate Web3Forms inbox independently from general enquiries.
-- **Inline Enquiries & Contact Form (`index.html`)**
-  - Asynchronous Web3Forms submission with topic selection, inline validation, and confirmation feedback without leaving the page.
-- **Search & Social Optimization (SEO)**
-  - Semantic HTML5, Schema.org JSON-LD (`NGO`, `Organization`, `WebPage`, `BreadcrumbList`), Geo metadata, `robots.txt`, `sitemap.xml`, and dedicated Open Graph / Twitter Card previews.
+**Live Site:** [teamudaan.org](https://teamudaan.org/)
 
 ---
 
-## 🛠️ Tech Stack
+## Features
 
-| Layer | Technology |
-| :--- | :--- |
-| **Structure** | Semantic HTML5 |
-| **Styling** | CSS3 (Custom Properties, Flexbox, Grid, Responsive Media Queries) |
-| **Interactivity** | Vanilla JavaScript (ES6+) |
-| **Dynamic QR** | [qrcode-generator](https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js) + NPCI UPI Deep Links |
-| **Form Handling** | [Web3Forms](https://web3forms.com/) (separate keys for Enquiries & Donations) |
-| **Icons & Fonts** | Font Awesome 6, Google Fonts (`DM Serif Display`, `Inter`, `Poppins`) |
-| **Hosting** | Cloudflare Pages |
+- **Responsive Layout:** Works cleanly across desktops, tablets, and mobile screens with a mobile nav menu and scroll progress bar.
+- **Fast Loading:** Compressed WebP images, lazy loading for lower sections, and a simple loading screen on initial visit.
+- **Donation Page (`donation.html`):**
+  - Preset amount buttons (`₹100` to `₹2,500`) plus a custom amount field.
+  - Opens the installed UPI app directly on mobile phones, and generates a scannable payment QR code on desktops and tablets.
+  - Sends donation details straight to the NGO's email via Web3Forms.
+- **Contact & Enquiries Form:** Lets volunteers, partners, and supporters reach out directly from the home page without leaving the site.
+- **SEO & Analytics:** Configured with Open Graph / Twitter previews, sitemap, `robots.txt`, and Google Analytics.
 
 ---
 
-## 📁 Project Structure
+## Built With
+
+- **HTML, CSS & JavaScript**
+- **Web3Forms** (separate forms for enquiries and donations)
+- **qrcode-generator** (dynamic UPI QR codes)
+- **Cloudflare Pages** (hosting & deployment)
+- **Codex & Antigravity** (AI coding assistants used during development, optimization, and responsive polish)
+
+---
+
+## Project Structure
 
 ```text
 udaan-website/
 ├── assets/
-│   ├── gallery/          # Optimized WebP & JPEG community drive photos
-│   ├── icons/            # Feature card icons and favicon
-│   ├── img/              # Hero, About, Donation banner, and Open Graph images
-│   ├── logo/             # Udaan brand logo assets
-│   └── qrcode/           # Static fallback UPI QR code
+│   ├── gallery/          # Gallery photos
+│   ├── icons/            # Card icons and favicon
+│   ├── img/              # Hero, About, Donation banner & OG images
+│   ├── logo/             # Udaan logo
+│   └── qrcode/           # Fallback UPI QR image
 ├── css/
-│   └── main.css          # Global styles, theme variables, responsive breakpoints & preloader
+│   └── main.css          # Stylesheet and responsive rules
 ├── js/
-│   └── script.js         # Navigation, scroll progress, preloader, enquiries & dynamic UPI QR logic
-├── screenshots/          # Website previews for documentation
+│   └── script.js         # Navigation, preloader, forms & UPI QR logic
+├── screenshots/          # Site previews
 │   ├── home.png
 │   ├── about.png
 │   ├── gallery.png
 │   ├── contact.png
 │   └── donation.png
-├── donation.html         # Device-aware UPI & dynamic QR donation page
-├── index.html            # Main landing page
-├── robots.txt            # Search engine crawler directives
-├── sitemap.xml           # XML sitemap for indexing
+├── donation.html         # Donation page
+├── index.html            # Home page
+├── robots.txt
+├── sitemap.xml
 └── README.md
 ```
 
 ---
 
-## 📷 Preview
+## Screenshots
 
-### Home & Hero
-![Udaan Home Page](screenshots/home.png)
+### Home
+![Home](screenshots/home.png)
 
-### About & Impact Stats
-![About Udaan and Impact Stats](screenshots/about.png)
+### About & Impact
+![About](screenshots/about.png)
 
-### Community Gallery
-![Udaan Community Gallery](screenshots/gallery.png)
+### Gallery
+![Gallery](screenshots/gallery.png)
 
-### Get Involved & Enquiries
-![Udaan Contact and Enquiries Form](screenshots/contact.png)
+### Contact
+![Contact](screenshots/contact.png)
 
-### Donation Page (Dynamic QR & UPI Flow)
-![Udaan Donation Page](screenshots/donation.png)
-
----
-
-## 💡 Purpose
-
-This digital platform enables Udaan to:
-
-- Share its mission, community initiatives, and measurable impact transparently.
-- Connect prospective volunteers, collaborators, and sponsors directly with the team.
-- Provide a fast, accessible, and frictionless donation experience on both mobile and desktop.
+### Donation Page
+![Donation](screenshots/donation.png)
 
 ---
 
-## 👨‍💻 Developer
+## Developer
 
 **Vaibhav**  
-Designed and developed as part of a web development journey while contributing to a meaningful social cause.
+Built as a personal web development project to give Udaan a clean online presence—designed and coded hands-on with help from AI agents (**Codex** and **Antigravity**) for optimization, layout fixes, and refinements.
 
 - GitHub: [@vaibhavvraj](https://github.com/vaibhavvraj)
 
 ---
 
-## 📄 License
+## License
 
-This project is intended for the official use of **Udaan**.  
-All rights reserved unless otherwise specified.
+Intended for the official use of **Udaan**. All rights reserved unless otherwise specified.
