@@ -1365,10 +1365,6 @@ footer ul a:hover {
     color: var(--secondary-text);
 }
 
-.donation-notice-list li:last-child {
-    grid-column: 1 / -1;
-}
-
 .donation-notice-list strong {
     display: block;
     margin-bottom: .15rem;
@@ -1380,6 +1376,7 @@ footer ul a:hover {
     font-weight: 600;
     color: var(--primary-text);
     font-size: .95em;
+    white-space: nowrap;
 }
 
 .donation-notice-list a {
