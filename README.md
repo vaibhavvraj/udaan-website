@@ -1,4 +1,4 @@
-# Udaan — Official NGO Website
+# Udaan - Official NGO Website
 
 Website for **Udaan** (*United Drive for Aspirations and Nurturing*), a youth-led nonprofit organization working to support underprivileged children and families through education, food drives, and community initiatives.
 
