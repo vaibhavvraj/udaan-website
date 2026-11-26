@@ -1,6 +1,6 @@
-# Udaan - Official NGO Website
+# Udaan - Official Website
 
-Website for **Udaan** (*United Drive for Aspirations and Nurturing*), a youth-led nonprofit organization working to support underprivileged children and families through education, food drives, and community initiatives.
+Website for **Udaan** (*United Drive for Aspirations and Nurturing*), a youth-led community initiative working to support underprivileged children and families through education, food drives, and community outreach.
 
 **Live Site:** [teamudaan.org](https://teamudaan.org/)
 
@@ -13,7 +13,7 @@ Website for **Udaan** (*United Drive for Aspirations and Nurturing*), a youth-le
 - **Donation Page (`donation.html`):**
   - Preset amount buttons (`₹100` to `₹2,500`) plus a custom amount field.
   - Opens the installed UPI app directly on mobile phones, and generates a scannable payment QR code on desktops and tablets.
-  - Sends donation details straight to the NGO's email via Web3Forms.
+  - Sends contribution details straight to Udaan's official email via Web3Forms.
 - **Contact & Enquiries Form:** Lets volunteers, partners, and supporters reach out directly from the home page without leaving the site.
 - **SEO & Analytics:** Configured with Open Graph / Twitter previews, sitemap, `robots.txt`, and Google Analytics.
 

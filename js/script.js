@@ -356,7 +356,7 @@ if (scrollProgressBar) {
             showGeneratedQR(upiUrl, amount);
         }
 
-        // Send donor record to official NGO email on both Phone and PC/Tablet
+        // Send contributor record to official Udaan email on both Phone and PC/Tablet
         if (submissionKey !== lastSubmittedKey) {
             lastSubmittedKey = submissionKey;
 
