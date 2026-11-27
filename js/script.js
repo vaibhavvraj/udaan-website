@@ -40,6 +40,141 @@ if (navToggle && primaryNavigation) {
     });
 }
 
+// Smooth scrolling for same-page navigation links
+(function () {
+    let activeScrollRaf = 0;
+
+    const cancelActiveScroll = () => {
+        if (activeScrollRaf) {
+            window.cancelAnimationFrame(activeScrollRaf);
+            activeScrollRaf = 0;
+        }
+    };
+
+    window.addEventListener("wheel", cancelActiveScroll, { passive: true });
+    window.addEventListener("touchstart", cancelActiveScroll, { passive: true });
+
+    const smoothScrollTo = (targetY, durationMs = 650) => {
+        cancelActiveScroll();
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        if (Math.abs(distance) < 2) {
+            window.scrollTo({ top: targetY, behavior: "instant" });
+            return;
+        }
+
+        const startTime = performance.now();
+        const easeInOutCubic = (t) =>
+            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+        const step = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / durationMs, 1);
+            const nextY = startY + distance * easeInOutCubic(progress);
+            window.scrollTo({ top: nextY, behavior: "instant" });
+
+            if (progress < 1) {
+                activeScrollRaf = window.requestAnimationFrame(step);
+            } else {
+                activeScrollRaf = 0;
+            }
+        };
+
+        activeScrollRaf = window.requestAnimationFrame(step);
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        if (link.id === "read-notice-link") return;
+
+        link.addEventListener("click", (event) => {
+            const hash = link.getAttribute("href");
+            if (!hash || hash === "#") return;
+
+            const target = hash === "#top"
+                ? document.documentElement
+                : document.getElementById(hash.slice(1));
+
+            if (!target) return;
+
+            event.preventDefault();
+            const targetTop = hash === "#top"
+                ? 0
+                : Math.max(0, target.getBoundingClientRect().top + window.scrollY);
+
+            smoothScrollTo(targetTop);
+
+            if (window.history && typeof window.history.pushState === "function") {
+                window.history.pushState(null, "", hash);
+            }
+        });
+    });
+})();
+
+// Home stats count-up animation when scrolled into view
+(function () {
+    const statsSection = document.querySelector(".stats");
+    if (!statsSection) return;
+
+    const counters = Array.from(statsSection.querySelectorAll(".stats-card h2"))
+        .map((heading) => {
+            const match = heading.textContent.trim().match(/^(\d+)(.*)$/);
+            if (!match) return null;
+            return {
+                el: heading,
+                target: Number(match[1]),
+                suffix: match[2] || "",
+            };
+        })
+        .filter(Boolean);
+
+    if (!counters.length || typeof window.IntersectionObserver !== "function") {
+        return;
+    }
+
+    counters.forEach(({ el, suffix }) => {
+        el.textContent = `0${suffix}`;
+    });
+
+    let hasAnimated = false;
+    const durationMs = 1600;
+
+    const animateCounters = () => {
+        if (hasAnimated) return;
+        hasAnimated = true;
+
+        const startTime = performance.now();
+
+        const step = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / durationMs, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+
+            counters.forEach(({ el, target, suffix }) => {
+                const value = progress >= 1 ? target : Math.round(eased * target);
+                el.textContent = `${value}${suffix}`;
+            });
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+
+        window.requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+                observer.disconnect();
+                animateCounters();
+            }
+        },
+        { threshold: 0.25 }
+    );
+
+    observer.observe(statsSection);
+})();
+
 const scrollProgressBar = document.querySelector(".scroll-progress-bar");
 
 if (scrollProgressBar) {
